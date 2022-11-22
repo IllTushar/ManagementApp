@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DashBoard.Dashboard">
+<androidx.appcompat.widget.Toolbar
+    app:title="Welcome !!"
+    android:id="@+id/toolbar"
+    app:subtitle="gmail"
+    android:background="#CF9FFF"
+    android:elevation="56dp"
+    app:titleTextColor="@color/white"
+    app:subtitleTextColor="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+    <FrameLayout
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/FrameLayout"
+        android:layout_above="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/menu"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        app:cnb_orientationMode="horizontal"
+        app:cnb_menuResource="@menu/bottom_menu"
+        android:layout_alignParentBottom="true"
+        app:cnb_radius="17dp"
+        android:background="@drawable/bottom_nav_corners"
+        app:cnb_iconSize="24dp"
+        app:cnb_animationDuration="175"
+        android:elevation="56dp"/>
+</RelativeLayout>

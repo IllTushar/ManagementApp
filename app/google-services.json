@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "122418940238",
+    "project_id": "teachermanagement-dff7a",
+    "storage_bucket": "teachermanagement-dff7a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122418940238:android:81492a041fd61fe966761f",
+        "android_client_info": {
+          "package_name": "com.example.teachermanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122418940238-00601e53cggvu5rk4dqnt2paap2tudf3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBeHIWPRADQHSecxZDJraNXBxHPzQo6Ofg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122418940238-00601e53cggvu5rk4dqnt2paap2tudf3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
