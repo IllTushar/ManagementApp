@@ -13,6 +13,42 @@
         app:titleTextColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <LinearLayout
+        android:id="@+id/linear1"
+        android:layout_below="@+id/toolbar"
+        android:layout_margin="2dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center|center_vertical">
+        <EditText
+            android:id="@+id/searchoption"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="@drawable/box"
+            android:hint="Search By Subject Code "
+            android:paddingLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnSearch"
+            app:elevation="56dp"
+            app:backgroundTint="#CF9FFF"
+            android:src="@drawable/ic_baseline_search_24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+             />
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/linear1"
+        android:id="@+id/rec_view"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:id="@+id/create"
