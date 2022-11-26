@@ -15,20 +15,6 @@
         android:theme="@style/Theme.TeacherManagement"
         tools:targetApi="31">
         <activity
-            android:name=".DashBoard.ClassSchedule.ScheduleForm"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".DashBoard.ClassSchedule.CreateClass"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".DashBoard.Dashboard"
             android:exported="false">
             <meta-data

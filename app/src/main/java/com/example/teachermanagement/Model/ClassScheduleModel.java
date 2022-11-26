@@ -2,7 +2,7 @@ package com.example.teachermanagement.Model;
 
 public class ClassScheduleModel
 {
- String name,subject,year,date,time;
+ private String name,subject,year,date,time;
 
     public ClassScheduleModel() {
     }

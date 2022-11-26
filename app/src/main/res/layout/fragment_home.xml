@@ -60,6 +60,7 @@
                 app:cardElevation="56dp">
 
                 <com.github.siyamed.shapeimageview.RoundedImageView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/class1" />
