@@ -2,13 +2,12 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/schedule_frame"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DashBoard.ClassSchedule.Schedule">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    tools:context=".DashBoard.Assignment.CreateClass">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/linear1"
         android:layout_margin="2dp"
@@ -17,7 +16,7 @@
         android:orientation="horizontal"
         android:gravity="center|center_vertical">
         <EditText
-            android:id="@+id/searchoption"
+            android:id="@+id/createSearchOption"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:background="@drawable/box"
@@ -29,7 +28,7 @@
             />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/btnSearch"
+            android:id="@+id/btnCreateSearch"
             app:elevation="56dp"
             app:backgroundTint="#CF9FFF"
             android:src="@drawable/ic_baseline_search_24"
@@ -37,22 +36,20 @@
             android:layout_height="wrap_content"
             />
     </LinearLayout>
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_below="@+id/linear1"
-        android:id="@+id/rec_view"
-        android:layout_height="wrap_content">
-
-    </androidx.recyclerview.widget.RecyclerView>
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/class_rec_view"
+    android:layout_below="@+id/linear1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
-        android:id="@+id/create"
-        android:layout_marginRight="5dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnClass"
         android:layout_marginBottom="5dp"
-        android:src="@drawable/ic_baseline_add_24"
+        android:layout_marginEnd="5dp"
+         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        app:backgroundTint="#CF9FFF"
-        android:layout_height="wrap_content"/>
-</RelativeLayout>
+        android:src="@drawable/ic_baseline_class_24"
+        app:backgroundTint="@color/mad_voilet"/>
+    </RelativeLayout>
 </FrameLayout>

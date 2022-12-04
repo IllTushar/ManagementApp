@@ -57,6 +57,7 @@ public class ScheduleForm extends Fragment {
         Class = v.findViewById(R.id.Class);
         Subject = v.findViewById(R.id.Subject);
         Schedule = v.findViewById(R.id.btnSchedule);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference("Class Schedule's");
         clock.setOnClickListener(new View.OnClickListener() {

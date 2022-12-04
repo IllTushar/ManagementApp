@@ -30,7 +30,6 @@
         android:layout_alignParentBottom="true"
         app:cnb_radius="17dp"
         app:cnb_badgeColor="#CF9FFF"
-        
         android:background="@drawable/bottom_nav_corners"
         app:cnb_iconSize="24dp"
         app:cnb_animationDuration="175"

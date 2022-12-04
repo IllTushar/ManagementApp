@@ -20,9 +20,9 @@ ChipNavigationBar chipNavigationBar;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+        loadFragment(new Home());
         toolbar = findViewById(R.id.toolbar);
         chipNavigationBar = findViewById(R.id.menu);
-        loadFragment(new Home());
         chipNavigationBar.setOnItemSelectedListener(this);
         String Email = getIntent().getStringExtra("email");
         toolbar.setSubtitle(Email);
@@ -43,6 +43,7 @@ ChipNavigationBar chipNavigationBar;
             case R.id.profile:
                 fragment = new Profile();
                 break;
+
         }
         loadFragment(fragment);
     }

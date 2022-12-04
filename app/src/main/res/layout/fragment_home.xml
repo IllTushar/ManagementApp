@@ -113,6 +113,7 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="0dp"
+                android:id="@+id/assignment"
                 android:layout_height="150dp"
                 android:layout_marginRight="5dp"
                 android:layout_weight="1"
@@ -121,6 +122,7 @@
                 app:cardElevation="56dp">
 
                 <com.github.siyamed.shapeimageview.RoundedImageView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/assignment" />
