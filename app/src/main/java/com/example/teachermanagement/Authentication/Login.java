@@ -82,6 +82,7 @@ EditText Email,Password;
                               String email = Email.getText().toString().trim();
                               Intent i = new Intent(Login.this, Dashboard.class);
                              i.putExtra("email",email);
+                             i.putExtra("password",Password.getText().toString());
                              startActivity(i);
                              pd.dismiss();
                              Email.setText("");

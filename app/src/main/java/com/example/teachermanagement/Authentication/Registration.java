@@ -142,7 +142,8 @@ StorageReference storageReference;
                                 String imageuri =uri.toString();
                                 validation(imageuri);
                                    Toast.makeText(Registration.this, "Upload Successfull !!", Toast.LENGTH_SHORT).show();
-                                   Intent i = new Intent(Registration.this, Dashboard.class);
+                                   Intent i = new Intent(Registration.this, Login.class);
+                                   i.putExtra("password",Password.getText().toString());
                                    startActivity(i);
                                }
                            });
@@ -176,7 +177,7 @@ StorageReference storageReference;
        String password = Password.getText().toString().trim();
 
            AuthenticationModel authenticationModel = new AuthenticationModel(name,email,password,imageUri);
-           reference.child(name).setValue(authenticationModel);
+           reference.child(password).setValue(authenticationModel);
            Name.setText("");
            Email.setText("");
            Password.setText("");

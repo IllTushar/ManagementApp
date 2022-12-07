@@ -3,12 +3,130 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.Profile">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragment.Profile"
+    android:background="@drawable/color_background">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile" />
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:textAlignment="textStart"
+        android:text="Profile"
+        android:textColor="@color/white"
 
+        />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="80dp"
+        android:id="@+id/profileimg"
+        android:elevation="56dp"
+        android:src="@drawable/profile"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="56dp"
+            android:alpha="0.8"
+            >
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:id="@+id/linear1"
+                    android:layout_marginTop="100dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+                    <TextView
+                        android:textAlignment="center"
+                        android:textSize="17sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Name"/>
+                    <TextView
+                        android:id="@+id/profilename"
+                        android:textAlignment="center"
+                        android:textSize="15sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Name"/>
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+                    <TextView
+                        android:textAlignment="center"
+                        android:textSize="17sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Email"/>
+                    <TextView
+                        android:id="@+id/profileemail"
+                        android:textAlignment="center"
+                        android:textSize="15sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Email"/>
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2">
+                    <TextView
+                        android:textAlignment="center"
+                        android:textSize="17sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Password"/>
+                    <TextView
+                        android:id="@+id/profilepassword"
+                        android:textAlignment="center"
+                        android:textSize="15sp"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Password"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+
+</RelativeLayout>
 </FrameLayout>

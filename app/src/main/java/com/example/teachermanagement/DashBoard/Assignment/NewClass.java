@@ -24,8 +24,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class NewClass extends Fragment {
 EditText classTeacherName,classSubject,classCode,className;
-FirebaseDatabase firebaseDatabase;
-DatabaseReference reference;
+static FirebaseDatabase  firebaseDatabase = FirebaseDatabase.getInstance();;
+static DatabaseReference  reference = firebaseDatabase.getReference("Personal Class");
 Button createClass,shareClassCode;
   public NewClass() {
         // Required empty public constructor
@@ -49,8 +49,8 @@ Button createClass,shareClassCode;
          classCode = v.findViewById(R.id.classCode);
          className = v.findViewById(R.id.className);
          createClass = v.findViewById(R.id.btnCreate);
-         firebaseDatabase = FirebaseDatabase.getInstance();
-         reference = firebaseDatabase.getReference("Personal Class");
+
+
 
          createClass.setOnClickListener(new View.OnClickListener() {
              @Override
@@ -62,19 +62,24 @@ Button createClass,shareClassCode;
                  ProgressDialog pd = new ProgressDialog(getContext());
                  pd.show();
                  pd.setMessage("Please wait...");
-                 if (TeacherName.isEmpty()) {
+                 if (TeacherName.isEmpty())
+                 {
                      Toast.makeText(getContext(), "Enter Class Teacher Name !!", Toast.LENGTH_SHORT).show();
                      pd.dismiss();
-                 } else if (ClassSubject.isEmpty()) {
+                 } else if (ClassSubject.isEmpty())
+                 {
                      Toast.makeText(getContext(), "Enter Subject Name !!", Toast.LENGTH_SHORT).show();
                      pd.dismiss();
-                 } else if (ClassCode.isEmpty()) {
+                 } else if (ClassCode.isEmpty())
+                 {
                      Toast.makeText(getContext(), "Enter Class Code !!", Toast.LENGTH_SHORT).show();
                      pd.dismiss();
-                 } else if (ClassName.isEmpty()) {
+                 } else if (ClassName.isEmpty())
+                 {
                      Toast.makeText(getContext(), "Enter Year !!", Toast.LENGTH_SHORT).show();
                      pd.dismiss();
-                 } else {
+                 } else
+                 {
                      CreateClassModel createClassModel = new CreateClassModel(TeacherName, ClassSubject, ClassName, ClassCode);
                      reference.child(ClassCode).setValue(createClassModel);
                      Toast.makeText(getContext(), "Create Class Successfully !!", Toast.LENGTH_SHORT).show();

@@ -2,7 +2,8 @@ package com.example.teachermanagement.Model;
 
 public class AuthenticationModel
 {
-private String name,email,password,imageuri;
+    public static String name;
+private String email,password,imageuri;
 
     public AuthenticationModel() {
     }

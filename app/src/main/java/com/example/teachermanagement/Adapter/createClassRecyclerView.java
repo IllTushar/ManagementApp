@@ -72,10 +72,17 @@ public class createClassRecyclerView extends FirebaseRecyclerAdapter<CreateClass
 //                              FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 //                              fragmentTransaction.replace(R.id.FrameLayout,fragment)
 //                                      .addToBackStack(null).commit();
-                              Intent i = new Intent(v.getContext(), show_Assignment.class);
-                             // dialog.dismiss();
-                              v.getContext().startActivity(i);
+                              try{
 
+                                 Intent i = new Intent(v.getContext(), show_Assignment.class);
+                                 i.putExtra("classCode",classCode);
+                                 v.getContext().startActivity(i);
+                                 //dialog.dismiss();
+
+                                 ClassCode.setText("");
+                              }catch (Exception e){
+                                 e.printStackTrace();
+                              }
                            }
                            else {
                               Toast.makeText(v.getContext(), "Something went wrong!!", Toast.LENGTH_SHORT).show();

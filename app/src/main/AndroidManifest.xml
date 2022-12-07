@@ -15,6 +15,13 @@
         android:theme="@style/Theme.TeacherManagement"
         tools:targetApi="31">
         <activity
+            android:name=".DashBoard.Assignment.uploadAssignment"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".DashBoard.Assignment.show_Assignment"
             android:exported="false">
             <meta-data

@@ -26,7 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class CreateClass extends Fragment {
 FloatingActionButton fb,search;
 RecyclerView rec_view;
-    createClassRecyclerView adapter;
+createClassRecyclerView adapter;
 EditText searchField;
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,11 +51,13 @@ EditText searchField;
             @Override
             public void onClick(View v) {
                 String SearchFiled = searchField.getText().toString().trim();
-                if (SearchFiled.isEmpty()){
+                if (SearchFiled.isEmpty())
+                {
                     Toast.makeText(getContext(), "Enter Subject Code", Toast.LENGTH_SHORT).show();
                     pd.dismiss();
                 }
-                else{
+                else
+                {
                     setQuery(SearchFiled);
                 }
             }
@@ -68,13 +70,17 @@ EditText searchField;
             adapter = new createClassRecyclerView(options);
              rec_view.setAdapter(adapter);
              pd.dismiss();
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
 
         }
-        fb.setOnClickListener(new View.OnClickListener() {
+        fb.setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Fragment fragment = new NewClass();
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -85,10 +91,11 @@ EditText searchField;
         return v;
     }
 
-    private void setQuery(String searchFiled) {
+    private void setQuery(String searchFiled)
+    {
         FirebaseRecyclerOptions<CreateClassModel>options = new FirebaseRecyclerOptions.Builder<CreateClassModel>()
                 .setQuery(FirebaseDatabase.getInstance().getReference("Personal Class")
-                        .orderByChild("classCode").startAt(searchFiled),CreateClassModel.class )
+                .orderByChild("classCode").startAt(searchFiled),CreateClassModel.class )
                 .build();
         adapter = new createClassRecyclerView(options);
         adapter.startListening();
@@ -96,25 +103,28 @@ EditText searchField;
     }
 
     @Override
-    public void onStart() {
+    public void onStart()
+    {
         super.onStart();
-        try{
-
+        try
+        {
             adapter.startListening();
-
         }
-        catch (Exception e){
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }
     @Override
-    public void onStop() {
+    public void onStop()
+    {
         super.onStop();
-        try {
-
+        try
+        {
             adapter.stopListening();
-
-        }catch (Exception e){
+        }
+        catch (Exception e)
+        {
             e.printStackTrace();
         }
     }

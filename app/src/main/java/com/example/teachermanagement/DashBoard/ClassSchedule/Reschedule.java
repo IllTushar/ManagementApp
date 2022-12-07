@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -123,6 +124,12 @@ public Reschedule() {
                      public void onComplete(@NonNull Task task) {
                       if (task.isSuccessful()){
                           Toast.makeText(getContext(), "Re-Scheduled !!", Toast.LENGTH_SHORT).show();
+                          Fragment fragment = new Schedule();
+                          FragmentManager manager = getActivity().getSupportFragmentManager();
+                          FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                          fragmentTransaction.replace(R.id.FrameLayout,fragment)
+                                          .addToBackStack(null)
+                                                  .commit();
                           pd.dismiss();
                       }
                       else{

@@ -1,66 +1,96 @@
 package com.example.teachermanagement.Fragment;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.teachermanagement.Adapter.noticeRecyclerView;
+import com.example.teachermanagement.DashBoard.Notice.CreateNotice;
+import com.example.teachermanagement.Model.CreateNoticeModel;
 import com.example.teachermanagement.R;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Notice#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Notice extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public Notice() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Notice.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static Notice newInstance(String param1, String param2) {
-        Notice fragment = new Notice();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+FloatingActionButton fb;
+RecyclerView recyclerView;
+noticeRecyclerView adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_notice, container, false);
+        View root = inflater.inflate(R.layout.fragment_notice, container, false);
+        fb = root.findViewById(R.id.create_notice);
+        recyclerView = root.findViewById(R.id.notice_rec_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        try {
+
+            FirebaseRecyclerOptions<CreateNoticeModel>options = new FirebaseRecyclerOptions.Builder<CreateNoticeModel>()
+                    .setQuery(FirebaseDatabase.getInstance().getReference("Notice's")
+                            ,CreateNoticeModel.class )
+                    .build();
+            adapter = new noticeRecyclerView(options);
+            Log.i("##Tag",adapter.toString());
+            adapter.startListening();
+            recyclerView.setAdapter(adapter);
+        }catch (Exception e){
+            Log.d("##Notice",e.getMessage());
+        }
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new CreateNotice();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.FrameLayout,fragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        return root;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        try{
+
+            adapter.startListening();
+
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        try {
+
+            adapter.stopListening();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }

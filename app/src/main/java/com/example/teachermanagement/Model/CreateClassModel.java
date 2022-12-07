@@ -1,8 +1,8 @@
 package com.example.teachermanagement.Model;
 
 public class CreateClassModel {
-    private String classTeacherName,classSubject,classYear,classCode;
-
+    private String classCode;
+    private String classTeacherName,classSubject,classYear;
     public CreateClassModel() {
     }
 
@@ -44,4 +44,6 @@ public class CreateClassModel {
     public void setClassCode(String classCode) {
         this.classCode = classCode;
     }
+
+
 }
