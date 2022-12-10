@@ -55,8 +55,18 @@
                    android:layout_height="wrap_content"/>
 
            </LinearLayout>
-        </LinearLayout>
 
+        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:id="@+id/btnViewNotice"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@color/mad_voilet"
+            android:src="@drawable/ic_baseline_send_24"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="5dp"
+            app:elevation="56dp"/>
 
     </RelativeLayout>
 
