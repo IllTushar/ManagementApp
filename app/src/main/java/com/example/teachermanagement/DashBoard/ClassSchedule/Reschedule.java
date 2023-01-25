@@ -15,9 +15,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -40,6 +44,7 @@ Button reShedule,Delete;
 ImageView Clander,Clock;
 FirebaseDatabase database;
 DatabaseReference reference;
+Spinner spinner;
 public Reschedule() {
         // Required empty public constructor
     }
@@ -78,10 +83,16 @@ public Reschedule() {
          Date.setText(date);
          Year.setText(year);
          Time.setText(time);
+         spinner = v.findViewById(R.id.spinner);
          database = FirebaseDatabase.getInstance();
          reference = database.getReference("Class Schedule's");
+         String[] type = new String[]{"9:00-9:55","9:55-10:50","10:50-11:45","2:10-3:05"};
 
-
+        ArrayAdapter<String>adapter = new ArrayAdapter<String>(
+                getContext(),
+                R.layout.spinner_xml,
+                type
+        );
 
          Clock.setOnClickListener(new View.OnClickListener() {
              @Override

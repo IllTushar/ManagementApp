@@ -1,11 +1,9 @@
-package com.example.teachermanagement.Fragment;
+package com.example.teachermanagement.Student.Fragments;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,24 +13,19 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.teachermanagement.Adapter.noticeRecyclerView;
-import com.example.teachermanagement.DashBoard.Notice.CreateNotice;
 import com.example.teachermanagement.Model.CreateNoticeModel;
 import com.example.teachermanagement.R;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.FirebaseDatabase;
 
+public class StudentNotice extends Fragment {
+    RecyclerView recyclerView;
+    noticeRecyclerView adapter;
 
-public class Notice extends Fragment {
 
-FloatingActionButton fb;
-RecyclerView recyclerView;
-noticeRecyclerView adapter;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @SuppressLint("MissingInflatedId")
@@ -40,13 +33,12 @@ noticeRecyclerView adapter;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_notice, container, false);
-        fb = root.findViewById(R.id.create_notice);
-        recyclerView = root.findViewById(R.id.notice_rec_view);
+        View view= inflater.inflate(R.layout.fragment_student_notice, container, false);
+        recyclerView = view.findViewById(R.id.st_notice_rec_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         try {
 
-            FirebaseRecyclerOptions<CreateNoticeModel>options = new FirebaseRecyclerOptions.Builder<CreateNoticeModel>()
+            FirebaseRecyclerOptions<CreateNoticeModel> options = new FirebaseRecyclerOptions.Builder<CreateNoticeModel>()
                     .setQuery(FirebaseDatabase.getInstance().getReference("Notice's")
                             ,CreateNoticeModel.class )
                     .build();
@@ -58,18 +50,7 @@ noticeRecyclerView adapter;
         catch (Exception e){
             Log.d("##Notice",e.getMessage());
         }
-        fb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment fragment = new CreateNotice();
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.FrameLayout,fragment)
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
-        return root;
+        return view;
     }
     @Override
     public void onStart() {

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DashBoard.Books.CreateFragment"
+    android:background="@drawable/color_background">
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Post Book"
+            android:letterSpacing="0.02"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:layout_marginRight="10dp"
+            android:textAlignment="textEnd"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="400dp"
+            android:alpha="0.75"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="56dp">
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center">
+                    <LinearLayout
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        >
+                        <TextView
+                            android:id="@+id/upload_link"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:textSize="20sp"
+                            android:layout_marginRight="0dp"
+                            android:text="\tLink"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/box"
+                            android:padding="5dp"
+
+                            />
+                        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                            android:layout_width="wrap_content"
+                            android:id="@+id/browse_book"
+                            android:layout_marginLeft="5dp"
+                            android:layout_height="wrap_content"
+                            app:backgroundTint="@color/mad_voilet"
+                            android:src="@drawable/ic_baseline_open_in_browser_24"
+                            />
+                    </LinearLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="0dp"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/Subject"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Title"
+
+                            android:inputType="textEmailAddress"
+                            android:textColorHint="@color/black"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="0dp"
+                        android:layout_height="wrap_content">
+                        <EditText
+                            android:id="@+id/author"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:hint="Author"
+
+                            android:inputType="textEmailAddress"
+                            android:textColorHint="@color/black"/>
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/upload_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Upload Book"
+                        android:layout_marginTop="30dp"
+                        android:elevation="56dp"
+                        android:textColor="@color/white"
+                        android:textSize="17sp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20sp"
+                        android:background="@drawable/button"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>

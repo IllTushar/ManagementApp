@@ -107,7 +107,7 @@ public class ViewNotice extends Fragment {
 
         return root;
     }
-    class RetrivePdfStream extends AsyncTask<String, Void, InputStream> {
+    public class RetrivePdfStream extends AsyncTask<String, Void, InputStream> {
 
         @Override
         protected InputStream doInBackground(String... strings) {

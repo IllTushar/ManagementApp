@@ -14,13 +14,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.teachermanagement.DashBoard.Assignment.CreateClass;
+import com.example.teachermanagement.DashBoard.Books.Books;
 import com.example.teachermanagement.DashBoard.ClassSchedule.Schedule;
+import com.example.teachermanagement.DashBoard.Quizz.ViewQuestions;
 import com.example.teachermanagement.R;
 
 
 public class Home extends Fragment {
 
-CardView img,assignment;
+CardView img,assignment,quizz,Book;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,34 @@ CardView img,assignment;
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         img =view.findViewById(R.id.class_schedule);
         assignment =view.findViewById(R.id.assignment);
+        quizz  = view.findViewById(R.id.quizz);
+         Book = view.findViewById(R.id.book);
+
+         Book.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View v) {
+                 Fragment fragment = new Books();
+                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                 fragmentTransaction.replace(R.id.FrameLayout,fragment)
+                         .addToBackStack(null)
+                         .commit();
+             }
+         });
+
+        quizz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Fragment fragment = new ViewQuestions();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.FrameLayout,fragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+
+
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
